@@ -94,7 +94,7 @@ http://localhost:4200
 
 ```bash
 cd back
-mvn clean test
+mvn test
 ```
 
 ---
@@ -144,12 +144,12 @@ back/target/site/jacoco/index.html
 
 ```bash
 cd front
-npm run test -- --code-coverage
+npm run test -- --coverage
 ```
 
 Ouvrir ensuite :
 
-front/coverage/index.html
+front/coverage/jest/lcov-report/index.html
 
 ---
 
@@ -157,55 +157,17 @@ front/coverage/index.html
 
 ```bash
 cd front
-npx cypress run
+npm run e2e
 ```
 
 Puis générer le rapport NYC (si configuré dans le projet) :
 
 ```bash
-npx nyc report --reporter=html
+npm run e2e:coverage
 ```
 
 Le rapport est disponible dans :
 
-front/coverage/
-
-ou
-
 front/coverage/lcov-report/index.html
 
-(selon la configuration du projet).
-
 ---
-
-## Captures d’écran à fournir
-
-Les captures demandées pour le rendu sont :
-
-- la page principale du rapport de couverture front‑end ;
-- la page principale du rapport de couverture back‑end ;
-- la page principale du rapport de couverture end‑to‑end.
-
-Les captures doivent être fournies au format PNG ou JPEG.
-
----
-
-## Vérification avant rendu
-
-Il est recommandé de :
-
-- cloner le dépôt dans un nouveau dossier,
-- suivre toutes les étapes de ce README,
-- vérifier que :
-  - le back‑end démarre correctement,
-  - le front‑end démarre correctement,
-  - tous les tests passent,
-  - les rapports de couverture sont accessibles.
-
----
-
-## Remarques
-
-- Le back‑end utilise Spring Security et JWT.
-- Les contrôleurs sont testés avec MockMvc.
-- Les packages DTO et Mapper peuvent être exclus du contrôle de couverture conformément aux consignes.
